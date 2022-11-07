@@ -3,7 +3,7 @@ from playwright.sync_api import Playwright, sync_playwright
 import pytest
 
 
-from utils.secret_config import PASSWORD
+# from utils.secret_config import PASSWORD
 
 
 @pytest.mark.integration

@@ -5,13 +5,13 @@ import pytest
 headless_bool = True
 slowmo_value = 0
 
-try:
-    PASSWORD = os.environ['PASSWORD']
-except KeyError:
-    import utils.secret_config
-    PASSWORD = utils.secret_config.PASSWORD
-    headless_bool = False
-    slowmo_value = 300
+# try:
+#     PASSWORD = os.environ['PASSWORD']
+# except KeyError:
+#     import utils.secret_config
+#     PASSWORD = utils.secret_config.PASSWORD
+#     headless_bool = False
+#     slowmo_value = 300
 
 
 @pytest.fixture()
@@ -53,7 +53,7 @@ def context_creation(playwright):
     # page.fill("[data-testid='siteMembers.container'] input[type='email']", "symon.storozhenko@gmail.com")
     page.fill('input:below(:text("Email"))', "symon.storozhenko@gmail.com")
     page.press("[data-testid='siteMembers.container'] >> input[type='email']", "Tab")
-    page.fill("input[type='password']", PASSWORD)
+    page.fill("input[type='password']", '123456')
     page.click("[data-testid='submit'] >> [data-testid='buttonElement']")
 
     # Save storage state into the file.
